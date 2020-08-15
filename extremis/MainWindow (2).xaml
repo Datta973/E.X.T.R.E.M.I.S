@@ -1,0 +1,40 @@
+﻿<Window x:Class="Osion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Osion"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="WidthAndHeight" 
+        Background="Transparent"
+        Opacity="1" 
+        Padding="30"
+        Loaded="Window_Loaded" WindowStartupLocation="Manual" AllowsTransparency="True"  WindowStyle="None" >
+    <Border Padding="10"  >
+        <DockPanel >
+            <Border  BorderThickness="1" Opacity="1.0" Width="900" Background="Transparent" CornerRadius="32,32,32,32"   >
+                <Border.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
+                </Border.BorderBrush>
+                <Grid>
+                    <Border x:Name="border" Background="White" CornerRadius="32,32,32,32"  ></Border>
+                    <StackPanel x:Name="stack" Background="#FF2D2D30" MouseDown="dragWindow" >
+                        <Border x:Name="minimize" Width="200" BorderThickness="1" Height="24" MouseEnter="Minimize_MouseEnter" MouseLeave="Minimize_MouseLeave" HorizontalAlignment="Right" Background="#FF2D2D30" BorderBrush="#FF302E2D" MouseDown="minimize_MouseDown" MouseUp="minimize_MouseUp" >
+                            <Image Height="4" Width="24" Stretch="Fill"  Source="pack://application:,,,/Resources/Min.png" ></Image>
+                        </Border>
+                        <TextBox x:Name="textBox"  BorderThickness="0" Margin="0,0,0,0"  Text="Type here..." GotKeyboardFocus="textBox_GotKeyboardFocus" LostKeyboardFocus="textBox_LostKeyboardFocus"  VerticalContentAlignment="Center" Padding="30 0 30 0" Height="40" KeyUp="textBox_KeyUp" VerticalAlignment="Bottom" FontSize="20" Foreground="Gray" />
+                        <StackPanel.OpacityMask>
+                            <VisualBrush Visual="{Binding ElementName=border}" ></VisualBrush>
+                        </StackPanel.OpacityMask>
+                    </StackPanel>
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}" Opacity=".5" BlurRadius="10" />
+
+                </Border.Effect>
+            </Border>
+
+
+        </DockPanel>
+    </Border>
+</Window>
